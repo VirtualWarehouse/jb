@@ -30,7 +30,7 @@ type PostChatCommandResp struct {
 }
 
 func (c *client) PostChatCommand(touchChannel, text string) (*PostChatCommandResp, error) {
-	u, err := url.Parse("https://clustervr.slack.com/api/chat.command")
+	u, err := url.Parse("https://dev-foxy.slack.com/api/chat.command")
 	if err != nil {
 		return nil, errors.WithStack(err)
 	}
@@ -76,7 +76,7 @@ type PostAuthTestResp struct {
 }
 
 func (c *client) PostAuthTest() (*PostAuthTestResp, error) {
-	u, err := url.Parse("https://clustervr.slack.com/api/auth.test")
+	u, err := url.Parse("https://dev-foxy.slack.com/api/auth.test")
 	if err != nil {
 		return nil, errors.WithStack(err)
 	}
