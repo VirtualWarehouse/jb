@@ -24,8 +24,9 @@ func init() {
 
 func shrugRun(_ *cobra.Command, args []string) error {
 	c := client.New(config.Cfg)
+	text := strings.Join(args, " ")
 
-	resp, err := c.PostChatCommand(config.Cfg.TouchChannel, strings.Join(args, " "), "shrug")
+	resp, err := c.PostChatCommand(config.Cfg.TouchChannel, text, "shrug")
 	if err != nil {
 		return err
 	}
@@ -33,7 +34,7 @@ func shrugRun(_ *cobra.Command, args []string) error {
 		return errors.New(resp.Error)
 	}
 
-	fmt.Println("Successfully touch")
+	fmt.Printf("Successfully touch: \"%s %s\"\n", text, `¯\_(ツ)_/¯`)
 
 	return nil
 }

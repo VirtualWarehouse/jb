@@ -24,8 +24,9 @@ func init() {
 
 func touchRun(_ *cobra.Command, args []string) error {
 	c := client.New(config.Cfg)
+	text := strings.Join(args, " ")
 
-	resp, err := c.PostChatCommand(config.Cfg.TouchChannel, strings.Join(args, " "), "jobcan_touch")
+	resp, err := c.PostChatCommand(config.Cfg.TouchChannel, text, "jobcan_touch")
 	if err != nil {
 		return err
 	}
@@ -33,7 +34,7 @@ func touchRun(_ *cobra.Command, args []string) error {
 		return errors.New(resp.Error)
 	}
 
-	fmt.Println("Successfully touch")
+	fmt.Printf("Successfully touch: \"%s %s\"\n", `/jobcan_touch`, text)
 
 	return nil
 }
