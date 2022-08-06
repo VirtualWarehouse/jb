@@ -12,6 +12,7 @@ import (
 
 	"github.com/VirtualWarehouse/jb/internal/config"
 	"github.com/pkg/errors"
+	"github.com/spf13/viper"
 )
 
 // client
@@ -30,7 +31,7 @@ type PostChatCommandResp struct {
 }
 
 func (c *client) PostChatCommand(touchChannel, text, command string) (*PostChatCommandResp, error) {
-	u, err := url.Parse("https://foxy1.slack.com/api/chat.command")
+	u, err := url.Parse(fmt.Sprintf("https://%s.slack.com/api/chat.command", viper.GetString("slackdomain")))
 	if err != nil {
 		return nil, errors.WithStack(err)
 	}
