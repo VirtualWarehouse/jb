@@ -84,6 +84,20 @@ func loginRun(_ *cobra.Command, _ []string) error {
 
 	viper.Set("touchChannel", touchChannel)
 
+	userId, err := surveyUserId()
+	if err != nil {
+		return err
+	}
+
+	viper.Set("userId", userId)
+
+	slackDomain, err := surveySlackDomain()
+	if err != nil {
+		return err
+	}
+
+	viper.Set("slackDomain", slackDomain)
+
 	err = viper.WriteConfig()
 	if err != nil {
 		return errors.WithStack(err)
@@ -125,4 +139,26 @@ func surveyTouchChannel() (string, error) {
 	}
 
 	return touchChannel, nil
+}
+
+func surveyUserId() (string, error) {
+	var userId string
+	p := &survey.Input{Message: "Please enter user ID"}
+	err := survey.AskOne(p, &userId, survey.WithValidator(survey.Required))
+	if err != nil {
+		return "", errors.WithStack(err)
+	}
+
+	return userId, nil
+}
+
+func surveySlackDomain() (string, error) {
+	var slackDomain string
+	p := &survey.Input{Message: "Please enter slack domain (e.g. Enter xxx of xxx.slack.com)"}
+	err := survey.AskOne(p, &slackDomain, survey.WithValidator(survey.Required))
+	if err != nil {
+		return "", errors.WithStack(err)
+	}
+
+	return slackDomain, nil
 }
