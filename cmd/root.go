@@ -5,7 +5,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/anoriqq/jb/internal/config"
+	"github.com/VirtualWarehouse/jb/internal/config"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )

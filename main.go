@@ -1,6 +1,6 @@
 package main
 
-import "github.com/anoriqq/jb/cmd"
+import "github.com/VirtualWarehouse/jb/cmd"
 
 func main() {
 	cmd.Execute()

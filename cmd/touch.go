@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/anoriqq/jb/internal/client"
-	"github.com/anoriqq/jb/internal/config"
+	"github.com/VirtualWarehouse/jb/internal/client"
+	"github.com/VirtualWarehouse/jb/internal/config"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 )

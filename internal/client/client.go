@@ -10,7 +10,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/anoriqq/jb/internal/config"
+	"github.com/VirtualWarehouse/jb/internal/config"
 	"github.com/pkg/errors"
 )
 

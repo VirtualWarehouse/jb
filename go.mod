@@ -1,4 +1,4 @@
-module github.com/anoriqq/jb
+module github.com/VirtualWarehouse/jb
 
 go 1.19
 

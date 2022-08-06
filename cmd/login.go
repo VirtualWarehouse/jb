@@ -4,8 +4,8 @@ import (
 	"fmt"
 
 	"github.com/AlecAivazis/survey/v2"
-	"github.com/anoriqq/jb/internal/client"
-	"github.com/anoriqq/jb/internal/config"
+	"github.com/VirtualWarehouse/jb/internal/client"
+	"github.com/VirtualWarehouse/jb/internal/config"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
