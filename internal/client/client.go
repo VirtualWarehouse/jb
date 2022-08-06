@@ -29,14 +29,14 @@ type PostChatCommandResp struct {
 	}
 }
 
-func (c *client) PostChatCommand(touchChannel, text string) (*PostChatCommandResp, error) {
-	u, err := url.Parse("https://dev-foxy.slack.com/api/chat.command")
+func (c *client) PostChatCommand(touchChannel, text, command string) (*PostChatCommandResp, error) {
+	u, err := url.Parse("https://foxy1.slack.com/api/chat.command")
 	if err != nil {
 		return nil, errors.WithStack(err)
 	}
 
 	v := url.Values{}
-	v.Set("command", "/jobcan_touch")
+	v.Set("command", "/"+command)
 	v.Set("channel", touchChannel)
 
 	if len(text) > 0 {

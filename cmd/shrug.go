@@ -11,21 +11,21 @@ import (
 )
 
 // touchCmd represents the touch command
-var touchCmd = &cobra.Command{
-	Use:   "touch",
-	Short: "touch",
+var shrugCmd = &cobra.Command{
+	Use:   "shrug",
+	Short: "shrug",
 	Long:  `Arguments are sent as a message`,
-	RunE:  touchRun,
+	RunE:  shrugRun,
 }
 
 func init() {
-	rootCmd.AddCommand(touchCmd)
+	rootCmd.AddCommand(shrugCmd)
 }
 
-func touchRun(_ *cobra.Command, args []string) error {
+func shrugRun(_ *cobra.Command, args []string) error {
 	c := client.New(config.Cfg)
 
-	resp, err := c.PostChatCommand(config.Cfg.TouchChannel, strings.Join(args, " "), "jobcan_touch")
+	resp, err := c.PostChatCommand(config.Cfg.TouchChannel, strings.Join(args, " "), "shrug")
 	if err != nil {
 		return err
 	}
